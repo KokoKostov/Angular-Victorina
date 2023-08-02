@@ -1,0 +1,39 @@
+.home {
+   display: flex; 
+   justify-content: space-around;
+   margin: 1rem;
+}
+.home-main {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+
+aside{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 20%;
+    height: 200px;
+}
+article {
+   
+ 
+   
+  
+    font-size: 24px;
+}
+li {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+a {
+    list-style: none;
+   
+}
+a:hover {
+    color: red;
+    cursor:pointer;
+}

@@ -1,0 +1,36 @@
+
+.logo {
+    font-size: 40px;
+    display: flex;
+   align-items: center;
+   margin-left: 1rem;
+}
+.start{
+    display: flex;
+    align-items: center;
+    
+}
+.start a{
+    font-size: 50px;
+    font-style: none;
+    
+}
+p {
+    font-size: 30px;
+}
+ul {
+    display: flex;
+    
+    margin: 1rem;
+}
+li {
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 24px;
+    list-style-type: none;
+}
+li:hover {
+    
+    color: red;
+    cursor: pointer;
+}
