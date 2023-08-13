@@ -48,6 +48,7 @@ export class AuthService {
    }
 
    SignUp(email:string,password:string){
+
     return this.afAuth
     .createUserWithEmailAndPassword(email,password)
     .then((result)=>{
@@ -69,7 +70,7 @@ export class AuthService {
       uid:user.uid,
       email:user.email,
       displayName:user.displayName,
-      photoUrl:user.photoUrl
+      // photoUrl:user.photoUrl
    };
    return userRef.set(userData,{
     merge:true

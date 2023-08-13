@@ -4,28 +4,34 @@
 
         <fieldset>
             <h2>Sign in</h2>
-            <span>Email:</span>
+            <span>Username:</span>
             <p class="login-p"> 
-                <input class="input-error" 
-                type="email" 
-                name="email" 
-                id="email" 
-                placeholder="email@gmail.com" #inputEmail>
+                <input class="login-username" 
+                type="text" 
+                
+                placeholder="Username" 
+                #userName
+                required>
             </p>
            
             <span>Password:</span>
             <p class="login-p">
                 
-                <input type="password" 
-                name="password" 
-                id="password" 
+                <input 
+                type="password" 
+                
                 placeholder="******"
-                #inputPassword
+                #userPassword
+                required
                 >
             </p>
          
 
-            <button class="login-button" >Login</button>
+            <button class="login-button" 
+            type="button"
+            value="Login"
+            (click)="authService.SignIn(userName.value, userPassword.value)"
+            >Login</button>
             
             <p class="login-text">
                 Dont have an account?

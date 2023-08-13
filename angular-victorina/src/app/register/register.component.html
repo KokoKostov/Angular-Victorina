@@ -5,45 +5,66 @@
         <fieldset>
             <h2>Sign up</h2>
             <span>Username</span>
+            <div class="formGroup">
             <p class="register-p"> 
-                <input class="input-error" 
-                type="email" 
-                name="email" 
-                id="email" 
-                placeholder="email@gmail.com" #inputEmail>
+                <input class="formControl"  
+                type="text" 
+                
+                placeholder="email@gmail.com" 
+                #userName
+                required>
+                
             </p>
-            <span>Email:</span>
+        </div>
+        <span>Email: </span>
+        <div class="formGroup">
             <p class="register-p"> 
-                <input class="input-error" 
+                <input class="formControl" 
                 type="email" 
-                name="email" 
-                id="email" 
-                placeholder="email@gmail.com" #inputEmail>
+                placeholder="email@gmail.com" 
+                #userEmail
+                required
+                >
             </p>
-           
+            </div>
+        
             <span>Password:</span>
+            <div class="formGroup">
             <p class="register-p">
                 
-                <input type="password" 
-                name="password" 
-                id="password" 
+                <input 
+                class="formControl" 
+                type="password" 
+                
                 placeholder="******"
-                #inputPassword
+                #userPassword
+                required
                 >
             </p>
-            <span>Repeat password:</span>
+        </div>
+        <span>Repeat password:</span>
+        <div class="formGroup">
             <p class="register-p">
                 
-                <input type="password" 
-                name="password" 
-                id="password" 
+                <input 
+                class="formControl" 
+                type="password" 
+               
                 placeholder="******"
-                #inputPassword
+                
+                required
                 >
             </p>
+        </div>
          
 
-            <button class="register-button" >Register</button>
+            <button 
+            class="register-button" 
+            type="button"
+            value="Sign Up"
+            (click)="authService.SignUp(userEmail.value, userPassword.value)"
+            
+            >Register</button>
             
             <p class="register-text">
                 Already have an account?

@@ -16,7 +16,7 @@
 // const analytics = getAnalytics(app);
 export const environment = {
     production: false,
-    firebase: { // Use 'firebaseConfig' instead of 'firebase'
+    firebaseConfig: { // Use 'firebaseConfig' instead of 'firebase'
       apiKey: "AIzaSyClNwHZUQ2Kjp0ng8kSKk73jxae9ENoR04",
       authDomain: "angularvictorina.firebaseapp.com",
       projectId: "angularvictorina",
