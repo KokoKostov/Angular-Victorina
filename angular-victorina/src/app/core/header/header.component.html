@@ -6,12 +6,16 @@
         <a>Start</a>
     </div>
     <div class="navbar">
-        <ul class="nav">
+        <ul class="nav" *ngIf="authService.isLoggedIn">
+          
             <li routerLink="/">Home</li>
             <li>Create</li>
-            <li routerLink="/login">Login</li>
-            <li routerLink="/register">Register</li>
             <li (click)="authService.SignOut()">Logout</li>
         </ul>
+        <ul class="nav" *ngIf="!authService.isLoggedIn">
+            <li routerLink="/">Home</li>
+        <li routerLink="/login">Login</li>
+        <li routerLink="/register">Register</li>
+    </ul>
     </div>
 </div>

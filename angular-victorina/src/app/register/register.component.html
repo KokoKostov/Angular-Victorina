@@ -36,15 +36,17 @@
                 formControlName="email"
                 class="form-control" 
                 placeholder="email@gmail.com" 
-                [ngClass]="{'is-invalid': submitted && f['email'].errors}"
-                
+                [ngClass]="{'is-invalid': submitted  && f['email'].errors}"
+               
                 
                 />
             </p>
-            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="submitted  && f['email']?.errors" class="invalid-feedback" >
                 <div *ngIf="f['email'].errors['required']">Email is required</div>
                 <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                
               </div>
+              <div *ngIf="emailAlreadyRegistered" class="invalid-feedback">Email is already used!</div>
           
         
           

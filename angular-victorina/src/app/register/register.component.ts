@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
   });
+  emailAlreadyRegistered =false
   submitted = false;
   constructor( public authService: AuthService, private formBuilder:FormBuilder ) { }
   ngOnInit(): void {
@@ -33,7 +34,8 @@ export class RegisterComponent implements OnInit {
       [
         Validators.required,
         Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}')
-      ]
+      ],
+      
     ],
     password:['',
     [
@@ -55,14 +57,25 @@ export class RegisterComponent implements OnInit {
     return this.form.controls
   }
 
-  onSubmit():void {
-    this.submitted = true;
+   async onSubmit():Promise<void> {
     
+    this.submitted = true;
+
     if (this.form.invalid){
       return
     }
+
     const email = this.form.get('email')?.value
     const password = this.form.get('password')?.value
+    const isEmailRegistered = await this.authService.isEmailRegistered(email)
+  
+
+    if(isEmailRegistered){
+      this.emailAlreadyRegistered = true;
+      return;
+    }
+
+
     this.authService.SignUp(email,password)
     
   }

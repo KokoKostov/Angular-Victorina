@@ -81,6 +81,8 @@ export class AuthService {
   
   get isLoggedIn():boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
+    
+    
     if(user!==null){
       return true
     }
@@ -93,6 +95,18 @@ export class AuthService {
       localStorage.removeItem('user'),
       this.router.navigate(['home'])
     })
+  }
+  async isEmailRegistered(email:string):Promise<boolean>{
+    try{
+  
+      const result= await this.afAuth.fetchSignInMethodsForEmail(email)
+
+      
+      return result.length>0;
+    }catch(error){
+      return false
+    }
+    
   }
 
 
