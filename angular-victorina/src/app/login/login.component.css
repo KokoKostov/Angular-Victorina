@@ -63,3 +63,8 @@ span {
     display: flex;
     font-size: 14px;
 }
+.invalid-feedback {
+    color: red;
+    margin-bottom: 1.5rem;
+    font-size: 16px;
+}
