@@ -19,7 +19,7 @@ fieldset {
     background: rgb(97, 203, 201);
     background: linear-gradient(69deg, rgba(97, 203, 201, 1) 6%, rgba(34, 193, 195, 1) 7%, rgba(96, 255, 237, 1) 31%, rgba(28, 215, 187, 1) 62%, rgba(166, 193, 255, 1) 100%);
 }
-.register-p {
+.form-group {
     display: flex;
 
     justify-content: center;
@@ -41,7 +41,7 @@ input {
 }
 
 span {
-    font-size: 24px;
+    font-size: 28px;
 
 }
 
@@ -62,4 +62,9 @@ span {
 .register-text {
     display: flex;
     font-size: 14px;
+}
+.invalid-feedback {
+    color: red;
+    margin-bottom: 1.5rem;
+    font-size: 16px;
 }

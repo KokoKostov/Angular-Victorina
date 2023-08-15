@@ -11,7 +11,7 @@
             <li>Create</li>
             <li routerLink="/login">Login</li>
             <li routerLink="/register">Register</li>
-            <li>About</li>
+            <li (click)="authService.SignOut()">Logout</li>
         </ul>
     </div>
 </div>
