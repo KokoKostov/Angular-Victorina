@@ -1,0 +1,41 @@
+<div class="login-container">
+    <form >
+  
+      <fieldset>
+        <h2>Create your quiz</h2>
+  
+        <span>Title:</span>
+        <p class="form-group">
+          <input
+            type="text"
+            formControlName="title"
+            class="form-control"
+           
+            placeholder="Your quiz name"
+          />
+        </p>
+        
+  
+        <span>Description:</span>
+        <p class="form-group">
+            <textarea
+            formControlName="description"
+            class="form-control"
+            rows="4" 
+            placeholder="Describe your quiz"
+          ></textarea>
+        </p>
+        <span>Number of questions:</span>
+        <p class="form-group">
+          <select>
+           <option *ngFor="let number of questionNumbers" [value]="number">{{number}}</option>
+        </select>
+        </p>
+       
+  
+        <button class="login-button" type="submit">Continue</button>
+  
+        
+      </fieldset>
+    </form>
+  </div>

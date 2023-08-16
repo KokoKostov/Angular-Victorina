@@ -1,7 +1,8 @@
 .login-container {
     display: flex;
     justify-content: space-around;
-  
+
+
 }
 
 fieldset {
@@ -12,17 +13,17 @@ fieldset {
     align-items: center;
     border-radius: 40px;
     background-color: aquamarine;
-    margin: 5rem;
-
+    margin: 3rem;
+    
     box-shadow: 1px 2px rgb(152, 228, 203);
     background: rgb(97, 203, 201);
     background: linear-gradient(69deg, rgba(97, 203, 201, 1) 6%, rgba(34, 193, 195, 1) 7%, rgba(96, 255, 237, 1) 31%, rgba(28, 215, 187, 1) 62%, rgba(166, 193, 255, 1) 100%);
 }
 .form-group {
     display: flex;
-
+   
     justify-content: center;
-    height: 3rem;
+    height: auto;
     width: 100%;
 
 
@@ -36,6 +37,7 @@ input {
     border-radius: 10px;
     padding: 0.4rem;
     font-size: 22px;
+   
 
 }
 
@@ -67,3 +69,23 @@ span {
     margin-bottom: 1.5rem;
     font-size: 16px;
 }
+select {
+    width: 90%;
+    
+    border-radius: 10px;
+    background-color: antiquewhite;
+    padding: 0.4rem;
+    font-size: 22px;
+}
+textarea{
+  
+    height: 8rem;
+    width: 90%;
+    word-wrap: break-word;
+    resize: vertical; 
+    background-color: antiquewhite;
+    border-radius: 10px;
+    font-size: 22px;
+    padding: 0.5rem;
+  }
+ 

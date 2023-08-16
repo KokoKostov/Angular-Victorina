@@ -9,13 +9,17 @@
         <ul class="nav" *ngIf="authService.isLoggedIn">
           
             <li routerLink="/">Home</li>
-            <li>Create</li>
+            
             <li (click)="authService.SignOut()">Logout</li>
+            <li routerLink="/create">Create Quiz</li>
+            <li routerLink="/browse">Browse Quizes</li>
         </ul>
         <ul class="nav" *ngIf="!authService.isLoggedIn">
             <li routerLink="/">Home</li>
         <li routerLink="/login">Login</li>
         <li routerLink="/register">Register</li>
+        <li routerLink="/browse">Browse Quizes</li>
+        
     </ul>
     </div>
 </div>
