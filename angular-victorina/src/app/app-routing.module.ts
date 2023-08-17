@@ -6,36 +6,39 @@ import { LoginComponent } from './login/login.component';
 import { BrowseComponent } from './browse/browse.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { CreateComponent } from './create/create.component';
+import { CreateQuestionComponent } from './create-question/create-question.component';
 const routes: Routes = [
-  {path: '',
-  pathMatch: 'full',
-  redirectTo: '/home',
-},
-{
-  path: 'home', component: HomeComponent
-},
-{
-  path: 'login',
-  component: LoginComponent, 
-},
-{
-  path: 'register',
-  component: RegisterComponent, 
-
-},
-{
-  path: 'browse',
-  component: BrowseComponent
-},
-{
-  path: 'create',
-  component: CreateComponent, canActivate:[AuthGuard]
-}
-
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+  },
+  {
+    path: 'browse',
+    component: BrowseComponent,
+  },
+  {
+    path: 'create',
+    component: CreateComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'question-create',
+    component: CreateQuestionComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

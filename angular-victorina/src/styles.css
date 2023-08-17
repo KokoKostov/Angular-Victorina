@@ -1,13 +1,18 @@
 html body {
-    font-size: 24px;
-    font-family: sans-serif;
+  font-size: 24px;
+  font-family: sans-serif;
 }
 .container {
-    display:flex;
-    justify-content: space-around;
-    background: rgb(97,203,201);
-    background: linear-gradient(69deg, rgba(97,203,201,1) 6%, rgba(34,193,195,1) 7%, rgba(96,255,237,1) 31%, rgba(28,215,187,1) 62%, rgba(166,193,255,1) 100%);
-    width: auto;
-   
-    
+  display: flex;
+  justify-content: space-between;
+  background: rgb(97, 203, 201);
+  background: linear-gradient(
+    69deg,
+    rgba(97, 203, 201, 1) 6%,
+    rgba(34, 193, 195, 1) 7%,
+    rgba(96, 255, 237, 1) 31%,
+    rgba(28, 215, 187, 1) 62%,
+    rgba(166, 193, 255, 1) 100%
+  );
+  width: auto;
 }

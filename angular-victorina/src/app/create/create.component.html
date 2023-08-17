@@ -1,5 +1,5 @@
 <div class="login-container">
-    <form >
+    <form [formGroup]="this.form" (ngSubmit)="onSubmit()" >
   
       <fieldset>
         <h2>Create your quiz</h2>
@@ -27,7 +27,9 @@
         </p>
         <span>Number of questions:</span>
         <p class="form-group">
-          <select>
+          <select
+          type="number"
+          formControlName="questionCount">
            <option *ngFor="let number of questionNumbers" [value]="number">{{number}}</option>
         </select>
         </p>

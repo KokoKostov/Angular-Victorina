@@ -1,36 +1,36 @@
-
 .logo {
-    font-size: 20px;
-    display: flex;
-   align-items: center;
-   margin-left: 1rem;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
 }
-.start{
-    display: flex;
-    align-items: center;
-    
+.start {
+  display: flex;
+  align-items: center;
 }
-.start a{
-    font-size: 20px;
-    font-style: none;
-    
+.start a {
+  font-size: 20px;
+  font-style: none;
+}
+.navbar {
+  display: flex;
+  align-items: center;
 }
 p {
-    font-size: 30px;
+  font-size: 30px;
 }
 ul {
-    display: flex;
-    
-    margin: 1rem;
+  display: flex;
+
+  margin: 1rem;
 }
 li {
-    padding: 0.5rem;
-    margin: 0.5rem;
-    font-size: 18px;
-    list-style-type: none;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  font-size: 18px;
+  list-style-type: none;
 }
 li:hover {
-    
-    color: red;
-    cursor: pointer;
+  color: red;
+  cursor: pointer;
 }

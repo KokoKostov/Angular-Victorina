@@ -1,70 +1,69 @@
 .register-container {
-    display: flex;
-    justify-content: space-around;
-
-
+  display: flex;
+  justify-content: space-around;
 }
 
 fieldset {
-    display: flex;
-    flex-direction: column;
-    min-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 25rem;
 
-    align-items: center;
-    border-radius: 40px;
-    background-color: aquamarine;
-    margin: 4rem;
+  align-items: center;
+  border-radius: 40px;
+  background-color: aquamarine;
+  margin: 4rem;
 
-    box-shadow: 1px 2px rgb(152, 228, 203);
-    background: rgb(97, 203, 201);
-    background: linear-gradient(69deg, rgba(97, 203, 201, 1) 6%, rgba(34, 193, 195, 1) 7%, rgba(96, 255, 237, 1) 31%, rgba(28, 215, 187, 1) 62%, rgba(166, 193, 255, 1) 100%);
+  box-shadow: 1px 2px rgb(152, 228, 203);
+  background: rgb(97, 203, 201);
+  background: linear-gradient(
+    69deg,
+    rgba(97, 203, 201, 1) 6%,
+    rgba(34, 193, 195, 1) 7%,
+    rgba(96, 255, 237, 1) 31%,
+    rgba(28, 215, 187, 1) 62%,
+    rgba(166, 193, 255, 1) 100%
+  );
 }
 .form-group {
-    display: flex;
+  display: flex;
 
-    justify-content: center;
-    height: 3rem;
-    width: 100%;
-
-
-
-
+  justify-content: center;
+  height: 3rem;
+  width: 100%;
 }
 
 input {
-    width: 90%;
-    background-color: antiquewhite;
-    border-radius: 10px;
-    padding: 0.4rem;
-    font-size: 22px;
-
+  width: 90%;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  padding: 0.4rem;
+  font-size: 22px;
 }
 
 span {
-    font-size: 28px;
-
+  font-size: 28px;
 }
 
 .register-button {
-
-    width: 60%;
-    height: auto;
-    border-radius: 90px;
-    background-color: greenyellow;
-    color: black;
-    font-size: 28px;
-    padding: 0.3rem;
-
-
-
+  width: 60%;
+  height: auto;
+  border-radius: 90px;
+  background-color: greenyellow;
+  color: black;
+  font-size: 28px;
+  padding: 0.3rem;
 }
 
 .register-text {
-    display: flex;
-    font-size: 14px;
+  display: flex;
+  font-size: 14px;
 }
 .invalid-feedback {
-    color: red;
-    margin-bottom: 1.5rem;
-    font-size: 16px;
+  color: red;
+  margin-bottom: 1.5rem;
+  font-size: 16px;
+}
+button:hover {
+  cursor: pointer;
+  background-color: lightgreen;
 }

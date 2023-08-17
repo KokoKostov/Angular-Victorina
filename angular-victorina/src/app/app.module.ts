@@ -18,7 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowseComponent } from './browse/browse.component';
 import { CreateComponent } from './create/create.component';
-
+import { CreateService } from './services/create.service';
+import { CreateQuestionComponent } from './create-question/create-question.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,9 @@ import { CreateComponent } from './create/create.component';
     LoginComponent,
     RegisterComponent,
     BrowseComponent,
-    CreateComponent
-    
+    CreateComponent,
+    CreateQuestionComponent,
+    CreateQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,9 +43,8 @@ import { CreateComponent } from './create/create.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
