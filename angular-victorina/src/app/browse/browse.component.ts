@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { CreateService } from '../services/create.service';
 import { Quiz } from '../types/quiz';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.component.html',

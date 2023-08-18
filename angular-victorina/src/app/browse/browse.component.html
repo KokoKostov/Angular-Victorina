@@ -13,7 +13,7 @@
         </div>
   
         <div class="btn-container">
-          <button>Start</button>
+          <button [routerLink]="['/victorina', quiz.quizId]">Start</button>
           <button (click)="deleteQuiz(quiz.quizId)">Delete</button>
         </div>
       </article>

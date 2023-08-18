@@ -1,1 +1,59 @@
-<p>victorina works!</p>
+<div class="question-container" *ngIf="quiz">
+    <h2>Question {{ currentQuestionIndex + 1 }}</h2>
+    <p>{{ getCurrentQuestion().text }}</p>
+  
+    <ul>
+      <li >
+        {{getCurrentQuestion().answer1}}
+        <label >
+          
+          <input
+          
+            type="radio"
+            name="option"
+            [value]="answer1"
+            (change)="selectAnswer($event)"
+          />
+          {{ option }}
+        </label>
+      </li>
+      <li >
+        {{getCurrentQuestion().answer2}}
+        <label >
+          <input
+            type="radio"
+            name="option"
+            [value]="i"
+            (change)="selectAnswer($event)"
+          />
+          {{ option }}
+        </label>
+      </li>
+      <li >
+        {{getCurrentQuestion().answer3}}
+        <label >
+          <input
+            type="radio"
+            name="option"
+            [value]="i"
+            (change)="selectAnswer($event)"
+          />
+          {{ option }}
+        </label>
+      </li>
+      <li >
+        {{getCurrentQuestion().answer4}}
+        <label >
+          <input
+            type="radio"
+            name="option"
+            [value]="i"
+            (change)="selectAnswer($event)"
+          />
+          {{ option }}
+        </label>
+      </li>
+    </ul>
+  
+    <button (click)="nextQuestion()">Next</button>
+  </div>

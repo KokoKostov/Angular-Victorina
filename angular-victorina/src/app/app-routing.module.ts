@@ -7,6 +7,8 @@ import { BrowseComponent } from './browse/browse.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { CreateComponent } from './create/create.component';
 import { CreateQuestionComponent } from './create-question/create-question.component';
+import { VictorinaComponent } from './victorina/victorina.component';
+import { BrowserModule } from '@angular/platform-browser';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   {
@@ -35,10 +37,14 @@ const routes: Routes = [
     component: CreateQuestionComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'victorina/:quizId',
+    component: VictorinaComponent,
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [BrowserModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
