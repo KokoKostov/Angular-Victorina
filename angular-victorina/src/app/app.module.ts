@@ -21,6 +21,7 @@ import { CreateComponent } from './create/create.component';
 import { CreateService } from './services/create.service';
 import { CreateQuestionComponent } from './create-question/create-question.component';
 import { VictorinaComponent } from './victorina/victorina.component';
+import { FinishScreenComponent } from './finish-screen/finish-screen.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { VictorinaComponent } from './victorina/victorina.component';
     CreateQuestionComponent,
     CreateQuestionComponent,
     VictorinaComponent,
+    FinishScreenComponent,
   ],
   imports: [
     BrowserModule,

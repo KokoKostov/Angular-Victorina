@@ -1,59 +1,53 @@
-<div class="question-container" *ngIf="quiz">
-    <h2>Question {{ currentQuestionIndex + 1 }}</h2>
+<app-finish-screen
+  *ngIf="quizFinished"
+  [correctAnswers]="answers.correct"
+  [incorrectAnswers]="answers.incorrect"
+></app-finish-screen>
+<div class="question-container" *ngIf="!quizFinished">
+  <span>Question {{ currentQuestionIndex + 1 }}/{{ quiz.questionCount }}</span>
+  <div class="question-text">
     <p>{{ getCurrentQuestion().text }}</p>
-  
-    <ul>
-      <li >
-        {{getCurrentQuestion().answer1}}
-        <label >
-          
-          <input
-          
-            type="radio"
-            name="option"
-            [value]="answer1"
-            (change)="selectAnswer($event)"
-          />
-          {{ option }}
-        </label>
-      </li>
-      <li >
-        {{getCurrentQuestion().answer2}}
-        <label >
-          <input
-            type="radio"
-            name="option"
-            [value]="i"
-            (change)="selectAnswer($event)"
-          />
-          {{ option }}
-        </label>
-      </li>
-      <li >
-        {{getCurrentQuestion().answer3}}
-        <label >
-          <input
-            type="radio"
-            name="option"
-            [value]="i"
-            (change)="selectAnswer($event)"
-          />
-          {{ option }}
-        </label>
-      </li>
-      <li >
-        {{getCurrentQuestion().answer4}}
-        <label >
-          <input
-            type="radio"
-            name="option"
-            [value]="i"
-            (change)="selectAnswer($event)"
-          />
-          {{ option }}
-        </label>
-      </li>
-    </ul>
-  
-    <button (click)="nextQuestion()">Next</button>
   </div>
+  <ul>
+    <li
+      type="button"
+      name="option"
+      [value]="getCurrentQuestion().answer1"
+      (click)="selectAnswer(getCurrentQuestion().answer1, 0)"
+      [ngClass]="feedbackClasses[0]"
+      [disabled]="isAnswerSelected"
+    >
+      {{ getCurrentQuestion().answer1 }}
+    </li>
+    <li
+      type="button"
+      name="option"
+      [value]="getCurrentQuestion().answer2"
+      (click)="selectAnswer(getCurrentQuestion().answer2, 1)"
+      [ngClass]="feedbackClasses[1]"
+      [disabled]="isAnswerSelected"
+    >
+      {{ getCurrentQuestion().answer2 }}
+    </li>
+    <li
+      type="button"
+      name="option"
+      [value]="getCurrentQuestion().answer3"
+      (click)="selectAnswer(getCurrentQuestion().answer3, 2)"
+      [ngClass]="feedbackClasses[2]"
+      [disabled]="isAnswerSelected"
+    >
+      {{ getCurrentQuestion().answer3 }}
+    </li>
+    <li
+      type="button"
+      name="option"
+      [value]="getCurrentQuestion().answer4"
+      (click)="selectAnswer(getCurrentQuestion().answer4, 3)"
+      [ngClass]="feedbackClasses[3]"
+      [disabled]="isAnswerSelected"
+    >
+      {{ getCurrentQuestion().answer4 }}
+    </li>
+  </ul>
+</div>
