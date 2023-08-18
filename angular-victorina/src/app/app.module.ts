@@ -20,6 +20,7 @@ import { BrowseComponent } from './browse/browse.component';
 import { CreateComponent } from './create/create.component';
 import { CreateService } from './services/create.service';
 import { CreateQuestionComponent } from './create-question/create-question.component';
+import { VictorinaComponent } from './victorina/victorina.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CreateQuestionComponent } from './create-question/create-question.compo
     CreateComponent,
     CreateQuestionComponent,
     CreateQuestionComponent,
+    VictorinaComponent,
   ],
   imports: [
     BrowserModule,

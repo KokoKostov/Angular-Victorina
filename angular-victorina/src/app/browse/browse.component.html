@@ -1,27 +1,22 @@
 <div class="body">
-<div class="quiz-container">
-    <article class="quiz-article" *ngFor="let quiz of quizzes">
-    <div class="title">
-        <h2>{{quiz.title}}</h2>
+    <div class="quiz-container">
+      <article class="quiz-article" *ngFor="let quiz of quizzes">
+        <div class="title">
+          <h2>{{ quiz.title }}</h2>
+        </div>
+        <div class="creator">
+          <span>Created by: <a>{{ quiz.author }}</a></span>
+          <p>Questions: {{ quiz.questionCount }}</p>
+        </div>
+        <div class="description">
+          <p>{{ quiz.description }}</p>
+        </div>
+  
+        <div class="btn-container">
+          <button>Start</button>
+          <button (click)="deleteQuiz(quiz.quizId)">Delete</button>
+        </div>
+      </article>
     </div>
-    <div class="creator">
-    <span>Created by: <a>{{quiz.author}}</a></span>
-    <p>Questions:{{quiz.questionCount}}</p>
-    </div>
-    <div class="description">
-       
-        <p>{{quiz.description}}</p>
-    </div>
-   
-    <div class="btn-container">
-        <button>Start</button>
-     
-        
-    </div>
-    </article>
-    
-    
-   
-    
-
-</div>
+  </div>
+  

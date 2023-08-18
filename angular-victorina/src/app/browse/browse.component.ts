@@ -17,4 +17,13 @@ export class BrowseComponent implements OnInit {
       this.quizzes = quizzes;
     });
   }
+
+  async deleteQuiz(quizId: string): Promise<void> {
+    try {
+      await this.createService.delete(quizId);
+      await this.createService.getAll(); // Refresh the list after deletion
+    } catch (error) {
+      console.error('Error deleting quiz:', error);
+    }
+  }
 }
