@@ -1,6 +1,10 @@
 export interface Questions {
-    questionId:string,
-    text:string,
-    options:string[],
-    correctAnswer:number
+  questionId: string;
+  text: string;
+  answer1: string;
+  answer2: string;
+  answer3: string;
+  answer4: string;
+  correctAnswer: number;
+  userAnswer?: number;
 }

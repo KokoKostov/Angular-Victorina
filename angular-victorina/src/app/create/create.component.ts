@@ -37,7 +37,7 @@ export class CreateComponent implements OnInit {
     const CreateQuizInput: CreateQuizInput = {
       title: formData.title,
       description: formData.description,
-      questionCount: formData.questionCount,
+      questionCount: 0,
     };
 
     this.createService.create(CreateQuizInput);

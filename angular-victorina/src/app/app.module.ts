@@ -38,6 +38,7 @@ import { CreateQuestionComponent } from './create-question/create-question.compo
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,

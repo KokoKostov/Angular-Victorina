@@ -31,7 +31,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'question-create',
+    path: 'create-question/:quizId',
     component: CreateQuestionComponent,
     canActivate: [AuthGuard],
   },

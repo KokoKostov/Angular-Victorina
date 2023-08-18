@@ -3,20 +3,20 @@ import {
   AngularFirestore,
   AngularFirestoreCollection,
 } from '@angular/fire/compat/firestore';
-import { Quiz } from '../types/quiz';
+
 import { CreateQuizInput } from '../types/create-quiz-input';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
-import { publishFacade } from '@angular/compiler';
+import { v4 as uuidv4 } from 'uuid';
+import { Questions } from '../types/questions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CreateService {
-  // authorName = this.authService.userData.displayName;
   private dbPath = '/quizes';
-  quizCollectionRef!: AngularFirestoreCollection<Quiz>;
+  quizCollectionRef!: AngularFirestoreCollection<any>;
 
   constructor(
     private db: AngularFirestore,
@@ -45,7 +45,7 @@ export class CreateService {
           quizId: quizId,
           author: this.authService.getDisplayName(),
         });
-        this.router.navigate(['/question-create']);
+        this.router.navigate(['/create-question', quizId]);
       });
   }
   update(id: string, data: any): Promise<void> {
@@ -53,5 +53,16 @@ export class CreateService {
   }
   delete(id: string): Promise<void> {
     return this.quizCollectionRef.doc(id).delete();
+  }
+  generateUniqueId(): string {
+    return uuidv4();
+  }
+  updateQuizQuestions(quizId: string, questions: Questions[]): Promise<void> {
+    const quizRef = this.quizCollectionRef.doc(quizId);
+
+    return quizRef.update({
+      questions: questions,
+      questionCount: questions.length,
+    });
   }
 }
