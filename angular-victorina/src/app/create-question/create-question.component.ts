@@ -24,6 +24,8 @@ export class CreateQuestionComponent implements OnInit {
     answer4: '',
     correctAnswer: 1,
   };
+  oneQuestionError: boolean = false;
+  showSpinner: boolean = false;
   questions: Questions[] = [];
   questionForm: FormGroup;
   quizId: string | null = null;
@@ -51,8 +53,10 @@ export class CreateQuestionComponent implements OnInit {
 
   OnSubmit() {
     if (this.questionForm.invalid) {
+      this.markFormGroupTouched(this.questionForm);
       return;
     }
+
     const formValue = this.questionForm.value;
 
     const questionId = this.createService.generateUniqueId();
@@ -66,17 +70,31 @@ export class CreateQuestionComponent implements OnInit {
 
   onFinish() {
     if (this.questions.length < 1) {
+      this.oneQuestionError = true;
       return;
     }
     if (this.quizId) {
+      this.showSpinner = true;
       this.createService
         .updateQuizQuestions(this.quizId, this.questions)
         .then(() => {
           console.log('Quiz questions updated');
           this.router.navigate(['/browse']); // Navigate to the desired page
+          this.showSpinner = false;
         });
     } else {
+      this.showSpinner = false;
       console.error('Invalid quizId');
     }
+  }
+
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach((control) => {
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      } else {
+        control.markAsTouched();
+      }
+    });
   }
 }

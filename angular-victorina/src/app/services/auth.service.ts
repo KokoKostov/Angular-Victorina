@@ -5,14 +5,6 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  Validators,
-  FormControl,
-} from '@angular/forms';
-import * as auth from 'firebase/auth';
 import { User } from '../types/user';
 
 @Injectable({
@@ -57,18 +49,15 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         if (result && result.user) {
-          // Set the username in the user's profile
           return result.user
             .updateProfile({
               displayName: username,
             })
             .then(() => {
-              // Now that the profile update is complete, update Firestore document
               this.SetUserData(result.user);
               this.router.navigate(['home']);
             });
         } else {
-          // Handle the case where result or result.user is undefined
           throw new Error('User creation failed');
         }
       })
@@ -103,8 +92,11 @@ export class AuthService {
   }
 
   SignOut() {
+    debugger;
     return this.afAuth.signOut().then(() => {
-      localStorage.removeItem('user'), this.router.navigate(['home']);
+      localStorage.removeItem('user');
+
+      this.router.navigate(['home']);
     });
   }
   async isEmailRegistered(email: string): Promise<boolean> {

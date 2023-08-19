@@ -9,6 +9,7 @@ import { CreateComponent } from './create/create.component';
 import { CreateQuestionComponent } from './create-question/create-question.component';
 import { VictorinaComponent } from './victorina/victorina.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   {
@@ -40,6 +41,12 @@ const routes: Routes = [
   {
     path: 'victorina/:quizId',
     component: VictorinaComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile/:userId',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

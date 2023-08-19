@@ -87,6 +87,9 @@
           <option [value]="4">Answer 4</option>
         </select>
       </p>
+      <p class="invalid-input" *ngIf="oneQuestionError">
+        You need to add atleast one question!
+      </p>
 
       <button class="login-button" type="submit">Next</button>
       <button class="login-button" type="button" (click)="onFinish()">

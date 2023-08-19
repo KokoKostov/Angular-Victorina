@@ -15,7 +15,7 @@ import { Questions } from '../types/questions';
 export class CreateComponent implements OnInit {
   submited = false;
   form: FormGroup;
-
+  showSpinner: boolean = false;
   questions: Questions[] = [];
   questionNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   constructor(private createService: CreateService, private fb: FormBuilder) {
@@ -41,7 +41,8 @@ export class CreateComponent implements OnInit {
   }
 
   onSubmit() {
-    if (!this.form.valid) {
+    if (this.form.invalid) {
+      this.markFormGroupTouched(this.form);
       return;
     }
     const formData = this.form.value;
@@ -50,7 +51,17 @@ export class CreateComponent implements OnInit {
       description: formData.description,
       questionCount: 0,
     };
-
+    this.showSpinner = true;
     this.createService.create(CreateQuizInput);
+    this.showSpinner = false;
+  }
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach((control) => {
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      } else {
+        control.markAsTouched();
+      }
+    });
   }
 }

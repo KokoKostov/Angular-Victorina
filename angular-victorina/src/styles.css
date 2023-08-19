@@ -1,6 +1,8 @@
 html body {
   font-size: 24px;
   font-family: sans-serif;
+  background-image: url("./assets/15690.jpg");
+  background-size: cover;
 }
 .container {
   display: flex;

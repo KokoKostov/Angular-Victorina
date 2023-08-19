@@ -1,25 +1,23 @@
 <div class="container">
-    <div class="logo">
-        <p>WOW</p>
-    </div>
-    <div class="start">
-        <a>Start</a>
-    </div>
-    <div class="navbar">
-        <ul class="nav" *ngIf="authService.isLoggedIn">
-          
-            <li routerLink="/">Home</li>
-            
-            <li (click)="authService.SignOut()">Logout</li>
-            <li routerLink="/create">Create Quiz</li>
-            <li routerLink="/browse">Browse Quizes</li>
-        </ul>
-        <ul class="nav" *ngIf="!authService.isLoggedIn">
-            <li routerLink="/">Home</li>
-        <li routerLink="/login">Login</li>
-        <li routerLink="/register">Register</li>
-        <li routerLink="/browse">Browse Quizes</li>
-        
+  <div class="logo">
+    <p *ngIf="hasUser">Welcome, {{ user.displayName }}!</p>
+    <p *ngIf="!hasUser">Welcome!</p>
+  </div>
+
+  <div class="navbar">
+    <ul class="nav" *ngIf="hasUser">
+      <li routerLink="/">Home</li>
+
+      <li (click)="authService.SignOut()">Logout</li>
+      <li routerLink="/create">Create Quiz</li>
+      <li routerLink="/browse">Browse Quizes</li>
+      <li [routerLink]="['/profile', user.uid]">My profile</li>
     </ul>
-    </div>
+    <ul class="nav" *ngIf="!hasUser">
+      <li routerLink="/">Home</li>
+      <li routerLink="/login">Login</li>
+      <li routerLink="/register">Register</li>
+      <li routerLink="/browse">Browse Quizes</li>
+    </ul>
+  </div>
 </div>

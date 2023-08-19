@@ -1,0 +1,22 @@
+<div class="body">
+  <div class="text">
+    <h2>{{ user?.displayName }}'s quizzes:</h2>
+  </div>
+  <div class="quiz-container">
+    <article class="quiz-article" *ngFor="let quiz of quizCollection">
+      <div class="title">
+        <h2>{{ quiz.title }}</h2>
+      </div>
+      <div class="description">
+        <p>{{ quiz.description }}</p>
+      </div>
+
+      <div class="btn-container">
+        <!-- <button class="edit-btn">Edit</button> -->
+        <button class="delete-btn" (click)="createService.delete(quiz.quizId)">
+          Delete
+        </button>
+      </div>
+    </article>
+  </div>
+</div>

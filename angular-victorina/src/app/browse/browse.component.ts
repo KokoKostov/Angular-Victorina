@@ -10,12 +10,13 @@ import { RouterLink } from '@angular/router';
 })
 export class BrowseComponent implements OnInit {
   quizzes: Quiz[] = [];
-
+  showSpinner: boolean = true;
   constructor(private createService: CreateService) {}
 
   ngOnInit(): void {
     this.createService.getAll().subscribe((quizzes) => {
       this.quizzes = quizzes;
+      this.showSpinner = false;
     });
   }
 

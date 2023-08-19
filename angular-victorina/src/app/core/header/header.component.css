@@ -1,8 +1,10 @@
 .logo {
-  font-size: 20px;
   display: flex;
   align-items: center;
   margin-left: 1rem;
+}
+.logo p {
+  font-size: 22px;
 }
 .start {
   display: flex;
