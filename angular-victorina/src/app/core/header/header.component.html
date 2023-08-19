@@ -1,6 +1,6 @@
 <div class="container">
   <div class="logo">
-    <p *ngIf="hasUser">Welcome, {{ user.displayName }}!</p>
+    <p *ngIf="hasUser">Welcome, {{ user?.displayName }}!</p>
     <p *ngIf="!hasUser">Welcome!</p>
   </div>
 

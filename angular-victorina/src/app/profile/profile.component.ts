@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   user: any;
   quizCollection: Quiz[] = [];
   quizzes: Quiz[] = [];
-
+  showSpinner: boolean = true;
   constructor(
     private authService: AuthService,
     private afAuth: AngularFireAuth,
@@ -31,8 +31,8 @@ export class ProfileComponent implements OnInit {
           this.quizCollection = this.quizzes.filter(
             (quiz) => quiz.author === this.user.displayName
           );
-          console.log(this.quizCollection);
         });
+        this.showSpinner = false;
       }
     });
   }
