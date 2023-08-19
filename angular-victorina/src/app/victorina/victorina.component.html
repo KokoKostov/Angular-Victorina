@@ -3,7 +3,8 @@
   [correctAnswers]="answers.correct"
   [incorrectAnswers]="answers.incorrect"
 ></app-finish-screen>
-<div class="question-container" *ngIf="!quizFinished">
+
+<div class="question-container" *ngIf="quiz && !quizFinished">
   <span>Question {{ currentQuestionIndex + 1 }}/{{ quiz.questionCount }}</span>
   <div class="question-text">
     <p>{{ getCurrentQuestion().text }}</p>

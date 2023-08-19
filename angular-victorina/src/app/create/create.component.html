@@ -1,36 +1,47 @@
 <div class="login-container">
-    <form [formGroup]="this.form" (ngSubmit)="onSubmit()" >
-  
-      <fieldset>
-        <h2>Create your quiz</h2>
-  
-        <span>Title:</span>
-        <p class="form-group">
-          <input
-            type="text"
-            formControlName="title"
-            class="form-control"
-           
-            placeholder="Your quiz name"
-          />
-        </p>
-        
-  
-        <span>Description:</span>
-        <p class="form-group">
-            <textarea
-            formControlName="description"
-            class="form-control"
-            rows="4" 
-            placeholder="Describe your quiz"
-          ></textarea>
-        </p>
-       
-       
-  
-        <button class="login-button" type="submit">Continue</button>
-  
-        
-      </fieldset>
-    </form>
-  </div>
+  <form [formGroup]="this.form" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <h2>Create your quiz</h2>
+
+      <span>Title:</span>
+      <p class="form-group">
+        <input
+          type="text"
+          formControlName="title"
+          class="form-control"
+          required=""
+          placeholder="Your quiz name"
+        />
+      </p>
+      <p
+        class="input-error"
+        *ngIf="
+          form.get('title')?.hasError('required') && form.get('title')?.touched
+        "
+      >
+        Title is required.
+      </p>
+
+      <span>Description:</span>
+      <p class="form-group">
+        <textarea
+          formControlName="description"
+          class="form-control"
+          rows="4"
+          placeholder="Describe your quiz"
+        ></textarea>
+      </p>
+      <p
+        class="input-error"
+        *ngIf="
+          form.get('description')?.hasError('required') &&
+          form.get('description')?.touched
+        "
+      >
+        Description is required.
+      </p>
+
+      <button class="login-button" type="submit">Continue</button>
+    </fieldset>
+  </form>
+</div>

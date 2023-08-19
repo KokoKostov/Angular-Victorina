@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 import { Questions } from '../types/questions';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CreateService } from '../services/create.service';
@@ -30,11 +35,11 @@ export class CreateQuestionComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.questionForm = this.fb.group({
-      text: [''],
-      answer1: [''],
-      answer2: [''],
-      answer3: [''],
-      answer4: [''],
+      text: ['', { validators: [Validators.required], updateOn: 'blur' }],
+      answer1: ['', { validators: [Validators.required], updateOn: 'blur' }],
+      answer2: ['', { validators: [Validators.required], updateOn: 'blur' }],
+      answer3: ['', { validators: [Validators.required], updateOn: 'blur' }],
+      answer4: ['', { validators: [Validators.required], updateOn: 'blur' }],
       correctAnswer: [1],
     });
   }
@@ -45,6 +50,9 @@ export class CreateQuestionComponent implements OnInit {
   }
 
   OnSubmit() {
+    if (this.questionForm.invalid) {
+      return;
+    }
     const formValue = this.questionForm.value;
 
     const questionId = this.createService.generateUniqueId();
@@ -57,6 +65,9 @@ export class CreateQuestionComponent implements OnInit {
   }
 
   onFinish() {
+    if (this.questions.length < 1) {
+      return;
+    }
     if (this.quizId) {
       this.createService
         .updateQuizQuestions(this.quizId, this.questions)

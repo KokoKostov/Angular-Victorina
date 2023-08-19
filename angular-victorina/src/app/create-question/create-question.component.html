@@ -1,51 +1,97 @@
 <div class="login-container">
-    <form [formGroup]="questionForm" (ngSubmit)="OnSubmit()">
-    
-      <fieldset>
-        <h2>Create Question</h2>
-  
-        <span>Question:</span>
-        <p class="form-group">
-          <textarea
-            formControlName="text"
-            class="form-control"
-            placeholder="What's your question?"
-          ></textarea>
-        </p>
-  
-        <span>Answer 1</span>
-        <p class="form-group">
-          <input type="text" formControlName="answer1" />
-        </p>
-  
-        <span>Answer 2</span>
-        <p class="form-group">
-          <input type="text" formControlName="answer2" />
-        </p>
-  
-        <span>Answer 3</span>
-        <p class="form-group">
-          <input type="text" formControlName="answer3" />
-        </p>
-  
-        <span>Answer 4</span>
-        <p class="form-group">
-          <input type="text" formControlName="answer4" />
-        </p>
-  
-        <span>Select correct answer</span>
-        <p class="form-group">
-          <select formControlName="correctAnswer">
-            <option [value]="1">Answer 1</option>
-            <option [value]="2">Answer 2</option>
-            <option [value]="3">Answer 3</option>
-            <option [value]="4">Answer 4</option>
-          </select>
-        </p>
-  
-        <button class="login-button" type="submit">Next</button>
-        <button class="login-button" type="button" (click)="onFinish()">Finish</button>
-      </fieldset>
-    </form>
-  </div>
-  
+  <form [formGroup]="questionForm" (ngSubmit)="OnSubmit()">
+    <fieldset>
+      <h2>Create Question</h2>
+
+      <span>Question:</span>
+      <p class="form-group">
+        <textarea
+          formControlName="text"
+          class="form-control"
+          placeholder="What's your question?"
+        ></textarea>
+      </p>
+
+      <p
+        class="invalid-input"
+        *ngIf="
+          questionForm.get('text')?.hasError('required') &&
+          questionForm.get('text')?.touched
+        "
+      >
+        Question is required.
+      </p>
+
+      <span>Answer 1</span>
+      <p class="form-group">
+        <input type="text" formControlName="answer1" />
+      </p>
+      <p
+        class="invalid-input"
+        *ngIf="
+          questionForm.get('answer1')?.hasError('required') &&
+          questionForm.get('answer1')?.touched
+        "
+      >
+        Answer is required.
+      </p>
+
+      <span>Answer 2</span>
+      <p class="form-group">
+        <input type="text" formControlName="answer2" />
+      </p>
+      <p
+        class="invalid-input"
+        *ngIf="
+          questionForm.get('answer2')?.hasError('required') &&
+          questionForm.get('answer2')?.touched
+        "
+      >
+        Answer is required.
+      </p>
+
+      <span>Answer 3</span>
+      <p class="form-group">
+        <input type="text" formControlName="answer3" />
+      </p>
+      <p
+        class="invalid-input"
+        *ngIf="
+          questionForm.get('answer3')?.hasError('required') &&
+          questionForm.get('answer3')?.touched
+        "
+      >
+        Answer is required.
+      </p>
+
+      <span>Answer 4</span>
+      <p class="form-group">
+        <input type="text" formControlName="answer4" />
+      </p>
+      <p
+        class="invalid-input"
+        *ngIf="
+          questionForm.get('answer4')?.hasError('required') &&
+          questionForm.get('answer4')?.touched
+        "
+      >
+        Answer is required.
+      </p>
+
+      <span>Select correct answer</span>
+      <p class="form-group">
+        <select formControlName="correctAnswer">
+          <option [value]="1">Answer 1</option>
+          <option [value]="2">Answer 2</option>
+          <option [value]="3">Answer 3</option>
+          <option [value]="4">Answer 4</option>
+        </select>
+      </p>
+
+      <button class="login-button" type="submit">Next</button>
+      <button class="login-button" type="button" (click)="onFinish()">
+        Finish
+      </button>
+    </fieldset>
+  </form>
+</div>

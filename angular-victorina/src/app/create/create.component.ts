@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { CreateService } from '../services/create.service';
 
@@ -26,13 +26,24 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      title: ['', { validators: [Validators.required], updateOn: 'blur' }],
+      description: [
+        '',
+        { validators: [Validators.required], updateOn: 'blur' },
+      ],
+    });
+  }
 
   onQuestionAdded(question: Questions) {
     this.questions.push(question);
   }
 
   onSubmit() {
+    if (!this.form.valid) {
+      return;
+    }
     const formData = this.form.value;
     const CreateQuizInput: CreateQuizInput = {
       title: formData.title,
